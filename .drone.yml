@@ -5,11 +5,6 @@ clone:
   depth: 1
 
 steps:
-- name: submodules
-    image: alpine/git
-    commands:
-     - git submodule init
-     - git submodule update
 - name: Building
   image: fadlyas/kernel_dockerfile
   environment:
@@ -18,4 +13,4 @@ steps:
     chat_id:
       from_secret: CHAT_ID
   commands:
-  - bash build.sh
+  - git submodule update --init --recursive && bash build.sh
