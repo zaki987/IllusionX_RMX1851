@@ -6,13 +6,11 @@ clone:
 
 steps:
 - name: Building
-  image: fadlyas/kernel_dockerfile
+  image: z4nyx/docker:latest
   environment:
-    bot_token:
-      from_secret: BOT_API_KEY
     chat_id:
       from_secret: CHAT_ID
     token:
       from_secret: BOT_API_KEY
   commands:
-  - git submodule update --init --recursive && bash build2.sh
+  - git submodule update --init --recursive && bash build.sh
